@@ -12,9 +12,9 @@ class Deck
 {
 	static const int ROWS=6;
 	static const int COLS=6;
-	Card cards[ROWS][COLS];
-	
+
 	public:
+	Card cards[ROWS][COLS];
 	Deck();
 	void addCards(std::string fileName);
 	void print();

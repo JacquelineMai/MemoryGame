@@ -56,7 +56,9 @@ void Deck::print()
 	{
 		for(int j=0; j<COLS; j++)
 		{
-			if(!cards[i][j].faceUp)
+			if(cards[i][j].matched)
+			{std::cout<<"[	O	]";}
+			else if(!cards[i][j].faceUp)
 			{std::cout<<"[	X	]";}
 			else
 			{std::cout<<cards[i][j].name<<"\t";}
