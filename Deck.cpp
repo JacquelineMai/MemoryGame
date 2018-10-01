@@ -20,17 +20,33 @@ void Deck::addCards(std::string fileName)
 		std::cerr<<"Could not open file!\n";
 		exit(1);
 	}
-	std::random_shuffle(names.begin(), names.end());
 
-	int count(0);
-	for(int i=0; i<ROWS; i++)
+	while(!cardFile.eof())
 	{
-		for(int j=0; j<COLS; j++)
+		getline(cardFile, line);
+		names.push_back(line);
+	}
+
+	std::random_shuffle(names.begin(), names.end());
+//	std::cout<<"postshuffle"<<std::endl;
+	int count(0);
+//	std::cout<<"preloop"<<std::endl;
+
+	cards[0][0].setName(names[count]);
+//	std::cout<<"first in array"<<cards[0][0].name<<std::endl;
+
+	for(int i=0; i<COLS; i++)
+	{
+//		std::cout<<"outerloop"<<std::endl;
+		for(int j=0; j<ROWS; j++)
 		{
+//			std::cout<<"innerloop"<<std::endl;
 			cards[i][j].setName(names[count]);
+//			std::cout<<"after inner"<<std::endl;
 			count++;
 		}
 	}
+//	std::cout<<"postloop"<<std::endl;
 	cardFile.close();
 }
 
