@@ -7,13 +7,9 @@ void playGame(Deck deck);
 
 int main()
 {
-//	int count=36;
 	Deck deck;
-	deck.addCards("cards.txt");
-//	deck.print();
-	
+	deck.addCards("cards.txt");	
 	playGame(deck);
-
 
 	return(0);
 }
@@ -32,15 +28,15 @@ void playGame(Deck deck)
 		std::cin>>next;
 
 		firstPos1=next[1]-48-1;
-//		std::cout<<firstPos1<<std::endl;
 		firstPos2=next[3]-48-1;
-//		std::cout<<firstPos2<<std::endl;
-//		std::cout<<next[6]<<" "<<next[8]<<std::endl;
 		secPos1=next[6]-48-1;
-//		std::cout<<secPos1<<std::endl;
 		secPos2=next[8]-48-1;
-//		std::cout<<secPos2<<std::endl;
 
+		if(firstPos1>5||firstPos1<0||firstPos2>5||firstPos2<0||secPos1>5||secPos1<0||secPos2>5||secPos2<0)
+		{ std::cout<<"Invalid position! Try again!\n\n";}
+
+		else
+		{
 		deck.cards[firstPos1][firstPos2].faceUp=true;
 		deck.cards[secPos1][secPos2].faceUp=true;
 		deck.print();
@@ -57,8 +53,7 @@ void playGame(Deck deck)
 			deck.cards[firstPos1][firstPos2].faceUp=false;
 			deck.cards[secPos1][secPos2].faceUp = false;
 		}
-
-//		count = 0;
 			
+		}
 	}
 }

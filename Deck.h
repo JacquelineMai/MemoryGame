@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
+#include <ctime>
 #include "Card.h"
 class Deck
 {
