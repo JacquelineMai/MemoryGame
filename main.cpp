@@ -55,7 +55,7 @@ void playGame(Deck deck)
 		else
 		{
 			points-=1;
-			std::cout<<"Sorry, no match this time.\n\n\n\n\n";
+			std::cout<<"Sorry, no match this time. You have "<<points<<" points.\n\n\n\n\n";
 			deck.cards[firstPos1][firstPos2].faceUp=false;
 			deck.cards[secPos1][secPos2].faceUp = false;
 		}
