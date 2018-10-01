@@ -16,6 +16,8 @@ int main()
 
 void playGame(Deck deck)
 {
+	//Runs the game- the player is presented with the board until all matches are made
+	//Flipping and comparing cards are simple tasks, so opted not to separate into smaller functions
 
 	int count =0;
 	std::string next;
@@ -32,6 +34,7 @@ void playGame(Deck deck)
 		secPos1=next[6]-48-1;
 		secPos2=next[8]-48-1;
 
+	//Make sure player chooses cards on the board
 		if(firstPos1>5||firstPos1<0||firstPos2>5||firstPos2<0||secPos1>5||secPos1<0||secPos2>5||secPos2<0)
 		{ std::cout<<"Invalid position! Try again!\n\n";}
 
@@ -43,13 +46,14 @@ void playGame(Deck deck)
 		if(deck.cards[firstPos1][firstPos2].name == deck.cards[secPos1][secPos2].name)
 		{
 			count+=2;
-			std::cout<<"A match made in heaven! You have "<<count/2<<" points!\n\n";
+			std::cout<<"A match made in heaven! You have "<<count/2<<" points!\n\n\n\n\n";
 			deck.cards[firstPos1][firstPos2].matched = true;
+			//When cards are marked as matched, they will only display [  O  ], even if the player selects that card again
 			deck.cards[secPos1][secPos2].matched = true;
 		}
 		else
 		{
-			std::cout<<"Sorry, no match this time.\n\n";
+			std::cout<<"Sorry, no match this time.\n\n\n\n\n";
 			deck.cards[firstPos1][firstPos2].faceUp=false;
 			deck.cards[secPos1][secPos2].faceUp = false;
 		}

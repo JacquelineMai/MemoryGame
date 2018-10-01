@@ -1,3 +1,5 @@
+//Card class header: Variables and functions available made public for easier access
+
 #ifndef CARD_H
 #define CARD_H
 

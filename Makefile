@@ -11,4 +11,4 @@ Card.o: Card.cpp Card.h
 	g++ -std=c++11 -c -g Card.h Card.cpp
 
 clean:
-	rm -f main *.o
+	rm -f main *.o *h.gch

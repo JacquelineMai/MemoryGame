@@ -1,3 +1,5 @@
+//Deck class definition
+
 #include "Deck.h"
 
 Deck::Deck()
@@ -5,10 +7,14 @@ Deck::Deck()
 
 void Deck::addCards(std::string fileName)
 {
-	std::vector<std::string> names;
+	//Read card names off file given in main driver into a vector
+	//The vector is shuffled and copied into a 2D array of Cards
+	//This ensures a different grid each time
 
+	std::vector<std::string> names;
 	std::ifstream cardFile;
 	std::string line;
+	int count(0);
 
 	cardFile.open(fileName);
 	if(cardFile.fail())
@@ -27,8 +33,6 @@ void Deck::addCards(std::string fileName)
 	std::srand(std::time(0));
 	std::random_shuffle(names.begin(), names.end());
 
-	int count(0);
-
 	cards[0][0].setName(names[count]);
 	for(int i=0; i<COLS; i++)
 	{
@@ -43,6 +47,9 @@ void Deck::addCards(std::string fileName)
 
 void Deck::print()
 {
+	//Creates the main display of the 'board'
+	//Cards are hidden unless specifically flipped by player
+
 	for(int i=0; i<ROWS; i++)
 	{
 		for(int j=0; j<COLS; j++)

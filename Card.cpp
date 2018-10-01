@@ -1,3 +1,5 @@
+//Card class definition: constructor and setter function
+
 #include "Card.h"
 
 Card::Card()
