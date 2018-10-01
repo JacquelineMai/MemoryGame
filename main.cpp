@@ -19,7 +19,7 @@ void playGame(Deck deck)
 	//Runs the game- the player is presented with the board until all matches are made
 	//Flipping and comparing cards are simple tasks, so opted not to separate into smaller functions
 
-	int count =0;
+	int count =0, points=0;
 	std::string next;
 	int firstPos1, firstPos2, secPos1, secPos2;
 	std::cout<<"Welcome to Memory! Are you ready to make the matches of a lifetime?\n";
@@ -46,18 +46,25 @@ void playGame(Deck deck)
 		if(deck.cards[firstPos1][firstPos2].name == deck.cards[secPos1][secPos2].name)
 		{
 			count+=2;
-			std::cout<<"A match made in heaven! You have "<<count/2<<" points!\n\n\n\n\n";
+			points+=5;
+			std::cout<<"A match made in heaven! You have "<<points<<" points!\n\n\n\n\n";
 			deck.cards[firstPos1][firstPos2].matched = true;
 			//When cards are marked as matched, they will only display [  O  ], even if the player selects that card again
 			deck.cards[secPos1][secPos2].matched = true;
 		}
 		else
 		{
+			points-=1;
 			std::cout<<"Sorry, no match this time.\n\n\n\n\n";
 			deck.cards[firstPos1][firstPos2].faceUp=false;
 			deck.cards[secPos1][secPos2].faceUp = false;
 		}
 			
 		}
+	}
+
+	if(count==36)
+	{
+		std::cout<<"Congratulations, you won! You have "<<points<<" points! Buy yourself something nice.\n"; 
 	}
 }
